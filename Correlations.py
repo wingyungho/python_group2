@@ -33,7 +33,7 @@ def getCorrelation(stock1, stock2):
     for i in range(0,len(x)):
         xy = xy + (x[i]*y[i])
     
-    cor = (xy - (n*stock1.getMean()*stock2.getMean())) / (n*stock1.getStandardDeviation()*stock2.getStandardDeviation())
+    cor = (xy - (n*stock1.getMeanReturn()*stock2.getMeanReturn())) / (n*stock1.getStandardDeviation()*stock2.getStandardDeviation())
     return cor
 
 def printCorrelation(stock1, stock2):

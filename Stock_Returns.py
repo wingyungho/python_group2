@@ -3,6 +3,14 @@
 Created on Mon Oct 10 15:06:03 2016
 
 @author: lukaswolff
+
+
+TASK
+Stock returns. Calculate the daily returns for all stocks in the data. Discuss the returns over
+the year: what companies experienced the maximum and minimum daily returns - can you
+find the reasons for these? Which companies performed overall best and worst over the year?
+Which companies exhibited most and least volatility, as measured by the standard deviation
+of their returns over the year?
 """
 
 import Stock as st

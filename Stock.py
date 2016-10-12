@@ -3,13 +3,7 @@
 Created on Sun Oct  9 14:29:45 2016
 
 @author: lukaswolff
-Stock returns. Calculate the daily returns for all stocks in the data. Discuss the returns over
-the year: what companies experienced the maximum and minimum daily returns - can you
-find the reasons for these? Which companies performed overall best and worst over the year?
-Which companies exhibited most and least volatility, as measured by the standard deviation
-of their returns over the year?
 """
-
 import numpy as np
 import math
 
@@ -40,16 +34,6 @@ class Stock():
     
     def getPrice_List(self):
         return self.price_list
-
-    def getDailyReturnAll(self):
-        """
-        Input: No input
-        Output: Movement of the stock price compared to the price the day before for the whole period
-        """
-        dailyReturn = []
-        for items in range(0, len(self.price_list)-1):
-            dailyReturn.append(((self.price_list[items + 1] - self.price_list[items]) / self.price_list[items])*100)
-        return dailyReturn
     
     
     def getDailyReturn(self, date):
@@ -59,9 +43,24 @@ class Stock():
         Output: Movement of the stock price compared to the price the day 
         before or None if it is the first observation
         """
-        return (self.price_list[date]-self.price_list[date-1])/self.price_list[date-1]
+        if date==0:
+            return None
+        else:
+            return (self.price_list[date]-self.price_list[date-1])/self.price_list[date-1]
 
 
+    def getDailyReturnAll(self):
+        """
+        Input: No input
+        Output: Movement of the stock price compared to the price the day before for the whole period
+        """
+        dailyReturn = []
+        for i in range(0, len(self.price_list)-1):
+            dailyReturn.append(self.price_list[i + 1] - self.price_list[i]) / self.price_list[i]
+            
+        return dailyReturn
+        
+        
     def getYearlyReturn(self):
         """
         Returns the return of the stock for the whole year
@@ -71,12 +70,12 @@ class Stock():
         return yearlyReturn
 
 
-    def getMean(self):
+    def getMeanReturn(self):
         """
         Returns the mean Stock Price Movement of the stock for the whole period
         of time
         """
-        mean = sum(self.getDailyReturnAll()) / len(self.price_list)
+        mean = sum(self.getDailyReturnAll()) / (len(self.price_list)-1)
         return mean
         
         
@@ -85,7 +84,7 @@ class Stock():
         Returns the variance of the Stock Price Movement for the 
         whole period
         """
-        average = self.getMean() ### This gives you the mean the Stock
+        average = self.getMeanReturn() ### This gives you the mean the Stock
         all_returns = self.getDailyReturnAll()
 
         variancelist = [] #Subtract the Mean and square the result
