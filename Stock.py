@@ -51,6 +51,7 @@ class Stock():
             dailyReturn.append(((self.price_list[items + 1] - self.price_list[items]) / self.price_list[items])*100)
         return dailyReturn
     
+    
     def getDailyReturn(self, date):
         """
         Input: Date as a index of our price list (e.g. 1 for price at 
@@ -58,8 +59,8 @@ class Stock():
         Output: Movement of the stock price compared to the price the day 
         before or None if it is the first observation
         """
-
         return (self.price_list[date]-self.price_list[date-1])/self.price_list[date-1]
+
 
     def getYearlyReturn(self):
         """
@@ -68,6 +69,7 @@ class Stock():
         yearlyReturn = (self.price_list[-1]-self.price_list[0]) / self.price_list[0]
 
         return yearlyReturn
+
 
     def getMean(self):
         """
@@ -83,7 +85,6 @@ class Stock():
         Returns the variance of the Stock Price Movement for the 
         whole period
         """
-
         average = self.getMean() ### This gives you the mean the Stock
         all_returns = self.getDailyReturnAll()
 
@@ -93,6 +94,7 @@ class Stock():
         
         variance = sum(variancelist)/len(variancelist) #The mean of those squared differences divided by the length is the variance.
         return variance
+        
         
     def getStandardDeviation(self):
         """

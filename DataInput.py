@@ -111,8 +111,8 @@ dataPrep()
 #print(Stock_List[3].getPrice_List())
 #print(findStock('YHOO').getName())
 #print(Stock_List[0].getSymbol())
-#print(c.getCorrelation(findStock('AAPL'), findStock('MMM')))
-print(c.getCorrelation(Stock_List[5], Stock_List[80]))
+print(c.getCorrelation(findStock('AAPL'), findStock('MMM')))
+#print(c.getCorrelation(Stock_List[5], Stock_List[80]))
 
 
 

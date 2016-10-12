@@ -16,6 +16,7 @@ def getDailyReturnsForAllStocks(stock_list):
     """
     return None
     
+    
 def getMinimumDailyReturns(stock_list):
     """
     Returns the lowest daily return for the observed period and the company
@@ -31,11 +32,13 @@ def getMaximumDailyReturns(stock_list):
     """
     return None
     
+    
 def getBestPerformingCompany(stock_list):
     """
     WHAT COULD BE A MEASURE OF GOOD PERFORMANCE? (maybe geometric mean?)
     """
     return None
+    
     
 def getWorstPerformingCompany(stock_list):
     """
@@ -51,12 +54,14 @@ def getCompanyWithLeastVolatility(stock_list):
     """
     return None
     
+    
 def getCompanyWithHighestVolatility(stock_list):
     """
     Returns the highest standard deviation of returns
     for all observed companies and the company associated to it
     """
     return None
+    
     
 def printSummary(stock_list):
     """
