@@ -34,12 +34,13 @@ def getMinimumDailyReturns(stock_list):
     Returns the lowest daily return for the observed period and the company
     associated to it
     """
+    dailyreturnforall = getDailyReturnsForAllStocks(stock_list)
     minforeachcompany=[]
     for i in range(len(dailyreturnforall)):
         minforeachcompany.append(min(dailyreturnforall[i]))
     min_dailyreturn = min(minforeachcompany)
-    min_dailyreturn_index  = min_dailyreturn.index(min_dailyreturn)
-    min_dailyreturn_com = stock_list[min_dailyreturn_index].getName()
+    min_dailyreturn_index  = minforeachcompany.index(min_dailyreturn)
+    min_dailyreturn_com = stock_list[min_dailyreturn_index]
     return (min_dailyreturn_com, min_dailyreturn )
     
     
@@ -49,11 +50,12 @@ def getMaximumDailyReturns(stock_list):
     associated to it
     """
     maxforeachcompany=[]
+    dailyreturnforall = getDailyReturnsForAllStocks(stock_list)
     for i in range(len(dailyreturnforall)):
         maxforeachcompany.append(max(dailyreturnforall[i]))
     max_dailyreturn = max(maxforeachcompany)
     max_dailyreturn_index  = maxforeachcompany.index(max_dailyreturn)
-    max_dailyreturn_com = stock_list[max_dailyreturn_index].getName()
+    max_dailyreturn_com = stock_list[max_dailyreturn_index]
     return (max_dailyreturn_com, max_dailyreturn )
     
     
@@ -81,7 +83,7 @@ def getCompanyWithLeastVolatility(stock_list):
         allsd.append(stock_list[i].getStandardDeviation())
     minsd=min(allsd)
     minsd_index = allsd.index(minsd)
-    minsd_name = stock_list[minsd_index].getName()
+    minsd_name = stock_list[minsd_index]
     return (minsd_name, minsd)
     
     
@@ -95,7 +97,7 @@ def getCompanyWithHighestVolatility(stock_list):
         allsd.append(stock_list[i].getStandardDeviation())    
     maxsd = max(allsd)
     maxsd_index = allsd.index(maxsd)
-    maxsd_name = stock_list[maxsd_index].getName()
+    maxsd_name = stock_list[maxsd_index]
     return (maxsd_name, maxsd)    
     return None
     
@@ -106,4 +108,8 @@ def printSummary(stock_list):
     of the dataset. 
     """
     #Maybe also include graphics?
-    print('')
+    print('The lowest daily return for the observed period is '+'str(getMinimumDailyReturns(stock_list)[1])'+' and the company associated to it is '+'str(getMinimumDailyReturns(stock_list)[0])')
+    print('The highest daily return for the observed period is '+'getMaximumDailyReturns(stock_list)[1]'+' and the company associated to it is '+'getMaximumDailyReturns(stock_list)[0]')    
+    print('The company with least volatility is '+'getCompanyWithLeastVolatility(stock_list)[0]'+' and its standard deviation in price is '+'getCompanyWithLeastVolatility(stock_list)[1]')
+    print('The company with highest volatility is ' +'getCompanyWithHighestVolatility(stock_list)[0]'+' and its standard deviation in price is '+'getCompanyWithHighestVolatility(stock_list)[1]')
+    
