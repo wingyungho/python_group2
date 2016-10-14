@@ -108,8 +108,8 @@ def printSummary(stock_list):
     of the dataset. 
     """
     #Maybe also include graphics?
-    print('The lowest daily return for the observed period is '+'str(getMinimumDailyReturns(stock_list)[1])'+' and the company associated to it is '+'str(getMinimumDailyReturns(stock_list)[0])')
-    print('The highest daily return for the observed period is '+'getMaximumDailyReturns(stock_list)[1]'+' and the company associated to it is '+'getMaximumDailyReturns(stock_list)[0]')    
-    print('The company with least volatility is '+'getCompanyWithLeastVolatility(stock_list)[0]'+' and its standard deviation in price is '+'getCompanyWithLeastVolatility(stock_list)[1]')
-    print('The company with highest volatility is ' +'getCompanyWithHighestVolatility(stock_list)[0]'+' and its standard deviation in price is '+'getCompanyWithHighestVolatility(stock_list)[1]')
+    print('The lowest daily return for the observed period is '+'str(getMinimumDailyReturns(stock_list)[1])'+' and the company associated to it is '+'str(getMinimumDailyReturns(stock_list)[0].getName())')
+    print('The highest daily return for the observed period is '+'getMaximumDailyReturns(stock_list)[1]'+' and the company associated to it is '+'getMaximumDailyReturns(stock_list)[0].getName()')    
+    print('The company with least volatility is '+'getCompanyWithLeastVolatility(stock_list)[0].getName()'+' and its standard deviation in price is '+'getCompanyWithLeastVolatility(stock_list)[1]')
+    print('The company with highest volatility is ' +'getCompanyWithHighestVolatility(stock_list)[0].getName()'+' and its standard deviation in price is '+'getCompanyWithHighestVolatility(stock_list)[1]')
     
