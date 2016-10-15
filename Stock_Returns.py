@@ -108,8 +108,16 @@ def printSummary(stock_list):
     of the dataset. 
     """
     #Maybe also include graphics?
-    print('The lowest daily return for the observed period is '+'getMinimumDailyReturns(stock_list)[1]'+' and the company associated to it is '+'str(getMinimumDailyReturns(stock_list)[0].getName())')
-    print('The highest daily return for the observed period is '+'getMaximumDailyReturns(stock_list)[1]'+' and the company associated to it is '+'str(getMaximumDailyReturns(stock_list)[0].getName())')    
-    print('The company with least volatility is '+'getCompanyWithLeastVolatility(stock_list)[0].getName()'+' and its standard deviation in price is '+'getCompanyWithLeastVolatility(stock_list)[1]')
-    print('The company with highest volatility is ' +'getCompanyWithHighestVolatility(stock_list)[0].getName()'+' and its standard deviation in price is '+'getCompanyWithHighestVolatility(stock_list)[1]')
+    Min_daily_return = getMinimumDailyReturns(stock_list)[1]
+    Max_daily_return = getMaximumDailyReturns(stock_list)[1]
+    Min_return_coname = getMinimumDailyReturns(stock_list)[0].getName()
+    Max_return_coname = getMaximumDailyReturns(stock_list)[0].getName()
+    Low_v = getCompanyWithLeastVolatility(stock_list)[1]
+    High_v = getCompanyWithHighestVolatility(stock_list)[1]
+    Low_v_coname = getCompanyWithLeastVolatility(stock_list)[0].getName()
+    High_v_coname = getCompanyWithHighestVolatility(stock_list)[0].getName()
+    print('The lowest daily return for the observed period is', Min_daily_return ,' and the company associated to it is', Min_return_coname)
+    print('The highest daily return for the observed period is', Max_daily_return ,' and the company associated to it is', Max_return_coname)    
+    print('The company with least volatility is', Low_v_coname ,' and its standard deviation in price is', Low_v)
+    print('The company with highest volatility is', High_v_coname ,'and its standard deviation in price is', High_v)
     
